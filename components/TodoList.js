@@ -8,7 +8,8 @@ const TodoList = (props) => {
   return (
     <FlatList
         data={props.todos}
-        renderItem={dataItem => <TodoItem description={dataItem.item.description} />}
+        style={{marginBottom: 90}}
+        renderItem={dataItem => <TodoItem todo={dataItem.item} completeTodoHandler={props.completeTodoHandler} removeTodoHandler={props.removeTodoHandler} />}
         keyExtractor={todo => todo.id}
       />
   )
@@ -18,9 +19,9 @@ const styles = StyleSheet.create({
   empetyMessage: {
     textAlign: 'center',
     fontSize: 20,
-    marginTop: 20,
+    marginTop: '50%',
     color: '#B2B2B2',
-    fontWeight: '600'
+    fontWeight: '600',
   }
 })
 
